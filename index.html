@@ -4,507 +4,582 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pradeep Palaniappan — Technology Lead</title>
-  <meta name="description" content="Technology Lead with 10+ years modernizing enterprise telecom platforms: Java, Spring Boot, microservices, Oracle, Azure and Kubernetes. Based in Calgary, Canada." />
+  <meta name="description" content="Technology Lead with 10+ years modernizing the enterprise platforms telecom networks are planned and built on: Java, Spring Boot, microservices, Oracle, Azure and Kubernetes. Calgary, Canada." />
   <meta property="og:title" content="Pradeep Palaniappan — Technology Lead" />
-  <meta property="og:description" content="10+ years moving mission-critical telecom systems off legacy stacks onto Spring Boot, Kubernetes and Azure — without stopping the business." />
+  <meta property="og:description" content="I modernize the systems telecom networks are planned and built on, without taking them offline." />
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://pradeepsandbox.github.io/" />
-  <meta name="theme-color" content="#14213D" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314213D'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' fill='%233CC4B4' text-anchor='middle'%3EPP%3C/text%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#0D1B2A" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230D1B2A'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23F2B544'/%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
 
   <style>
-    /* ---------- Tokens ---------- */
     :root {
-      --paper: #F1F4F7;
+      --night: #0D1B2A;
+      --night-2: #14263A;
+      --night-line: #263B53;
+      --on-night: #E9EEF4;
+      --on-night-muted: #9CB0C6;
+      --amber: #F2B544;
+      --paper: #F4F6F8;
       --surface: #FFFFFF;
-      --ink: #14213D;
-      --muted: #55657A;
-      --rule: #D5DCE4;
-      --legacy: #8A97A8;
-      --signal: #0B8577;
-      --signal-soft: #DDF1EE;
-      --radius-sm: 6px;
-      --radius-lg: 14px;
-      --max: 1120px;
+      --ink: #0D1B2A;
+      --muted: #52637A;
+      --rule: #D9DFE6;
+      --amber-ink: #9A6510;
+      --display: "Familjen Grotesk", system-ui, sans-serif;
+      --serif: "Source Serif 4", Georgia, serif;
+      --max: 1180px;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --paper: #0E1828;
-        --surface: #15223A;
-        --ink: #E7ECF3;
-        --muted: #9AA9BC;
-        --rule: #26364F;
-        --legacy: #5F6F86;
-        --signal: #3CC4B4;
-        --signal-soft: #143A40;
+        --paper: #101F31;
+        --surface: #16283D;
+        --ink: #E9EEF4;
+        --muted: #A3B4C8;
+        --rule: #263B53;
+        --amber-ink: #F2B544;
       }
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     body {
-      font-family: "Schibsted Grotesk", system-ui, -apple-system, sans-serif;
+      font-family: var(--display);
       background: var(--paper);
       color: var(--ink);
       font-size: 17px;
-      line-height: 1.6;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; }
-    :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 3px; }
+    :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
 
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-
-    /* ---------- Top bar ---------- */
-    .bar {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 22px 0;
+    /* ---------- Nav ---------- */
+    .nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 10;
+      transition: background .25s ease, border-color .25s ease;
+      border-bottom: 1px solid transparent;
     }
-    .mark { font-weight: 800; letter-spacing: -0.02em; text-decoration: none; font-size: 18px; }
-    .mark span { color: var(--signal); }
-    .bar nav { display: flex; gap: 26px; }
-    .bar nav a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; }
-    .bar nav a:hover { color: var(--ink); }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--on-night); font-weight: 700; letter-spacing: -0.01em; }
+    .brand i { width: 10px; height: 10px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 0 4px rgba(242,181,68,.18); }
+    .nav nav { display: flex; gap: 30px; align-items: center; }
+    .nav nav a { color: var(--on-night-muted); text-decoration: none; font-size: 15px; font-weight: 500; }
+    .nav nav a:hover { color: var(--on-night); }
+    .nav nav a.talk {
+      color: var(--night); background: var(--amber); padding: 8px 16px; border-radius: 999px; font-weight: 600;
+    }
+    .nav.solid { background: var(--night); border-color: var(--night-line); }
 
     /* ---------- Hero ---------- */
     .hero {
-      display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center;
-      padding: 64px 0 88px;
+      background:
+        radial-gradient(circle at 1px 1px, rgba(156,176,198,.13) 1px, transparent 0) 0 0 / 28px 28px,
+        radial-gradient(ellipse 70% 60% at 78% 40%, #173049 0%, transparent 70%),
+        var(--night);
+      color: var(--on-night);
+      padding: 140px 0 0;
+      overflow: hidden;
     }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1.08fr; gap: 64px; align-items: center; }
+    .status { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--on-night-muted); }
+    .status b { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; box-shadow: 0 0 0 4px rgba(74,222,128,.15); }
     .hero h1 {
-      font-size: clamp(48px, 7.4vw, 92px);
-      line-height: 0.95; letter-spacing: -0.045em; font-weight: 800;
+      margin-top: 22px;
+      font-size: clamp(52px, 7vw, 96px); line-height: .92; letter-spacing: -0.045em; font-weight: 700;
     }
-    .role {
-      margin-top: 22px; font-size: clamp(19px, 2vw, 23px); font-weight: 600;
-      letter-spacing: -0.01em;
+    .hero .pitch {
+      margin-top: 26px; font-family: var(--serif); font-size: clamp(21px, 2.1vw, 26px); line-height: 1.38;
+      color: #D5DEE8; max-width: 25em;
     }
-    .lede { margin-top: 18px; color: var(--muted); max-width: 33em; font-size: 18px; }
-    .where { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
-    .chip {
-      font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: 999px;
-      border: 1px solid var(--rule); background: var(--surface);
-    }
-    .chip.live { border-color: var(--signal); color: var(--signal); }
-    .chip.live::before {
-      content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%;
-      background: var(--signal); margin-right: 8px; vertical-align: 1px;
-    }
-    .cta-row { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; }
+    .facts { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 8px 26px; font-size: 15px; color: var(--on-night-muted); }
+    .facts span strong { color: var(--on-night); font-weight: 600; }
+    .actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
     .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 13px 22px; border-radius: var(--radius-sm);
-      font-weight: 600; font-size: 16px; text-decoration: none;
-      transition: transform .15s ease, background .15s ease;
+      display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px;
+      font-weight: 600; font-size: 16px; text-decoration: none; border: 1px solid transparent;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
-    .btn.primary { background: var(--ink); color: var(--paper); }
-    .btn.primary:hover { transform: translateY(-1px); }
-    .btn.ghost { border: 1px solid var(--rule); }
-    .btn.ghost:hover { background: var(--surface); }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.amber { background: var(--amber); color: var(--night); }
+    .btn.line { border-color: var(--night-line); color: var(--on-night); }
+    .btn.line:hover { border-color: var(--on-night-muted); }
 
-    /* ---------- Migration diagram (the signature moment) ---------- */
-    .diagram {
-      background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius-lg);
-      padding: 26px 24px 18px;
+    /* Architecture switch (signature) */
+    .arch {
+      background: linear-gradient(180deg, rgba(20,38,58,.9), rgba(13,27,42,.6));
+      border: 1px solid var(--night-line); border-radius: 22px; padding: 22px 22px 18px;
     }
-    .diagram svg { width: 100%; height: auto; display: block; overflow: visible; }
-    .diagram figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); }
-    .node-legacy rect { fill: var(--paper); stroke: var(--legacy); stroke-dasharray: 4 4; }
-    .node-legacy text { fill: var(--muted); font-size: 15px; }
-    .node-modern rect { fill: var(--signal-soft); stroke: var(--signal); stroke-width: 1.5; }
-    .node-modern .t1 { fill: var(--ink); font-weight: 700; }
-    .node-modern .t2 { fill: var(--muted); font-size: 15px; }
-    .diagram text { font-family: inherit; font-size: 16.5px; }
-    .diagram .side { fill: var(--muted); font-size: 14px; font-weight: 600; }
-    .flow { fill: none; stroke: var(--signal); stroke-width: 2; }
-    .pulse { fill: var(--signal); }
+    .arch-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 14px; }
+    .arch-top p { font-size: 14px; color: var(--on-night-muted); }
+    .switch { display: inline-flex; background: var(--night); border: 1px solid var(--night-line); border-radius: 999px; padding: 4px; }
+    .switch button {
+      font: inherit; font-size: 14px; font-weight: 600; color: var(--on-night-muted); background: none; border: 0;
+      padding: 7px 16px; border-radius: 999px; cursor: pointer;
+    }
+    .switch button[aria-pressed="true"] { background: var(--amber); color: var(--night); }
+    .arch svg { width: 100%; height: auto; display: block; }
+    .arch svg text { font-family: var(--display); }
+    .arch .cap { margin-top: 10px; font-size: 14px; color: var(--on-night-muted); min-height: 2.9em; }
 
-    @media (prefers-reduced-motion: no-preference) {
-      .flow { stroke-dasharray: 260; stroke-dashoffset: 260; animation: draw 1.1s cubic-bezier(.6,0,.2,1) forwards; }
-      .flow:nth-of-type(2) { animation-delay: .15s; }
-      .flow:nth-of-type(3) { animation-delay: .3s; }
-      .node-modern { opacity: 0; transform: translateX(10px); animation: arrive .6s ease-out 1.15s forwards; }
-      .pulse { opacity: 0; animation: arrive .4s ease-out 1.5s forwards; }
-      @keyframes draw { to { stroke-dashoffset: 0; } }
-      @keyframes arrive { to { opacity: 1; transform: none; } }
+    .g-legacy, .g-modern { transition: opacity .6s ease, transform .7s cubic-bezier(.2,.7,.2,1); transform-box: view-box; transform-origin: 50% 50%; }
+    .arch[data-state="modern"] .g-legacy { opacity: 0; transform: scale(.94); pointer-events: none; }
+    .arch[data-state="legacy"] .g-modern { opacity: 0; transform: scale(1.04); }
+    .l-node rect { fill: rgba(156,176,198,.06); stroke: #5C7290; stroke-dasharray: 5 5; }
+    .l-node .a { fill: #C9D4E0; font-size: 15px; font-weight: 600; }
+    .l-node .b { fill: #8399B2; font-size: 12.5px; }
+    .tangle { fill: none; stroke: #E0796B; stroke-width: 1.4; stroke-dasharray: 3 5; opacity: .8; }
+    .warn { fill: #E0796B; font-size: 12.5px; font-weight: 600; }
+    .cluster { fill: rgba(242,181,68,.04); stroke: var(--amber); stroke-dasharray: 6 6; stroke-opacity: .55; }
+    .cluster-label { fill: var(--amber); font-size: 12.5px; font-weight: 600; }
+    .gw rect, .data rect { fill: #1B3350; stroke: #3E5A7C; }
+    .pod rect { fill: #1B3350; stroke: var(--amber); stroke-opacity: .85; }
+    .gw text, .data .a, .pod text { fill: var(--on-night); font-size: 14px; font-weight: 600; }
+    .data .b { fill: var(--on-night-muted); font-size: 12.5px; }
+    .wire { fill: none; stroke: var(--amber); stroke-width: 1.5; stroke-opacity: .75; }
+    .pod { transition: transform .6s cubic-bezier(.2,.7,.2,1); transform-box: fill-box; }
+    .arch[data-state="legacy"] .pod { transform: translateY(14px); }
+    .arch[data-state="modern"] .pod:nth-of-type(2) { transition-delay: .06s; }
+    .arch[data-state="modern"] .pod:nth-of-type(3) { transition-delay: .12s; }
+    .arch[data-state="modern"] .pod:nth-of-type(4) { transition-delay: .18s; }
+    .arch[data-state="modern"] .pod:nth-of-type(5) { transition-delay: .24s; }
+    @media (prefers-reduced-motion: reduce) {
+      .g-legacy, .g-modern, .pod { transition: opacity .2s linear; transform: none !important; }
     }
 
-    /* ---------- Impact strip ---------- */
-    .impact {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    /* Proof strip */
+    .proof {
+      margin-top: 96px; display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--night-line);
     }
-    .impact div { padding: 30px 22px 30px 0; }
-    .impact div + div { padding-left: 22px; border-left: 1px solid var(--rule); }
-    .impact strong { display: block; font-size: 38px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; }
-    .impact span { display: block; margin-top: 6px; color: var(--muted); font-size: 15px; line-height: 1.45; }
+    .proof div { padding: 30px 24px 38px 0; }
+    .proof div + div { padding-left: 24px; border-left: 1px solid var(--night-line); }
+    .proof strong { display: block; font-size: clamp(34px, 3.6vw, 46px); line-height: 1; font-weight: 700; letter-spacing: -0.04em; }
+    .proof strong em { font-style: normal; color: var(--amber); }
+    .proof span { display: block; margin-top: 10px; font-size: 15px; color: var(--on-night-muted); max-width: 15em; }
 
     /* ---------- Sections ---------- */
-    section { padding: 96px 0 0; }
-    .sec-head { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
-    h2 { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; }
-    .sec-note { color: var(--muted); margin-top: 10px; font-size: 15px; max-width: 18em; }
+    section.block { padding: 128px 0 0; }
+    .head { display: grid; grid-template-columns: 1fr 1.35fr; gap: 64px; align-items: end; margin-bottom: 56px; }
+    .head h2 { font-size: clamp(38px, 4.6vw, 60px); line-height: 1; letter-spacing: -0.04em; font-weight: 700; }
+    .head p { font-family: var(--serif); font-size: 20px; line-height: 1.5; color: var(--muted); max-width: 30em; }
 
-    /* About */
-    .about p { font-size: 21px; line-height: 1.55; max-width: 36em; letter-spacing: -0.005em; }
-    .about p + p { margin-top: 18px; font-size: 18px; color: var(--muted); }
+    /* Case studies */
+    .case {
+      display: grid; grid-template-columns: 300px 1fr 220px; gap: 48px;
+      padding: 44px 0; border-top: 1px solid var(--rule);
+    }
+    .case:last-child { border-bottom: 1px solid var(--rule); }
+    .case .metric { font-size: clamp(40px, 4.4vw, 58px); font-weight: 700; letter-spacing: -0.045em; line-height: .95; }
+    .case .metric small { display: block; margin-top: 12px; font-size: 15px; font-weight: 500; letter-spacing: 0; color: var(--muted); line-height: 1.4; }
+    .case .metric::after { content: ""; display: block; width: 44px; height: 4px; border-radius: 2px; background: var(--amber); margin-top: 18px; }
+    .case h3 { font-size: 26px; line-height: 1.15; letter-spacing: -0.025em; font-weight: 700; max-width: 22em; }
+    .case .story { margin-top: 14px; font-family: var(--serif); font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 36em; }
+    .case .story strong { color: var(--ink); font-weight: 600; }
+    .case ul { list-style: none; display: flex; flex-direction: column; gap: 8px; padding-top: 6px; }
+    .case li { font-size: 14px; font-weight: 500; color: var(--muted); padding-left: 16px; position: relative; }
+    .case li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid var(--amber-ink); }
 
-    /* Timeline */
-    .timeline { list-style: none; position: relative; }
-    .timeline::before {
-      content: ""; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 2px; background: var(--rule);
+    /* Career */
+    .career { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); position: relative; }
+    .career::before { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: var(--rule); }
+    .step { position: relative; padding: 34px 28px 0 0; }
+    .step::before {
+      content: ""; position: absolute; top: 0; left: 0; width: 16px; height: 16px; border-radius: 50%;
+      background: var(--paper); border: 2px solid var(--muted);
     }
-    .role-item { position: relative; padding-left: 40px; }
-    .role-item + .role-item { margin-top: 18px; }
-    .role-item::before {
-      content: ""; position: absolute; left: 0; top: 24px; width: 16px; height: 16px; border-radius: 50%;
-      background: var(--paper); border: 2px solid var(--legacy);
-    }
-    .role-item.current::before { border-color: var(--signal); background: var(--signal); box-shadow: 0 0 0 5px var(--signal-soft); }
+    .step.now::before { background: var(--amber); border-color: var(--amber); box-shadow: 0 0 0 6px rgba(242,181,68,.22); }
+    .step .yrs { font-size: 14px; font-weight: 600; color: var(--amber-ink); font-variant-numeric: tabular-nums; }
+    .step h3 { margin-top: 6px; font-size: 21px; letter-spacing: -0.02em; line-height: 1.2; }
+    .step p { margin-top: 8px; font-family: var(--serif); font-size: 16px; color: var(--muted); line-height: 1.5; }
+    .employer { margin-top: 40px; font-size: 15px; color: var(--muted); }
+    .employer strong { color: var(--ink); }
 
-    details {
-      background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius-lg);
-    }
-    summary {
-      list-style: none; cursor: pointer; padding: 20px 24px;
-      display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; align-items: baseline;
-    }
-    summary::-webkit-details-marker { display: none; }
-    summary h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
-    summary .when { color: var(--muted); font-size: 15px; font-variant-numeric: tabular-nums; white-space: nowrap; }
-    summary .focus { grid-column: 1 / -1; color: var(--muted); font-size: 15px; }
-    summary .toggle {
-      grid-column: 1 / -1; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--signal);
-    }
-    summary .toggle::after { content: "Show details"; }
-    details[open] summary .toggle::after { content: "Hide details"; }
+    /* How I lead */
+    .lead { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .lead article { background: var(--surface); border: 1px solid var(--rule); border-radius: 20px; padding: 30px 28px 32px; }
+    .lead svg { width: 30px; height: 30px; stroke: var(--amber-ink); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .lead h3 { margin-top: 18px; font-size: 22px; letter-spacing: -0.02em; }
+    .lead p { margin-top: 10px; font-family: var(--serif); font-size: 17px; line-height: 1.55; color: var(--muted); }
 
-    .role-body { padding: 0 24px 24px; border-top: 1px solid var(--rule); }
-    .role-body h4 { font-size: 15px; font-weight: 700; margin-top: 20px; }
-    .role-body ul { margin-top: 8px; padding-left: 18px; }
-    .role-body li { margin-top: 6px; max-width: 46em; }
-    .role-body li::marker { color: var(--signal); }
-    .stack { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; }
-    .stack span {
-      font-size: 13px; font-weight: 500; padding: 3px 10px; border-radius: var(--radius-sm);
-      background: var(--paper); border: 1px solid var(--rule);
-    }
-    @media (prefers-reduced-motion: no-preference) {
-      details[open] .role-body { animation: open .25s ease-out; }
-      @keyframes open { from { opacity: 0; transform: translateY(-4px); } }
-    }
+    /* Toolkit */
+    .tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 48px; }
+    .tool { padding: 22px 0; border-top: 1px solid var(--rule); }
+    .tool h3 { font-size: 16px; font-weight: 700; }
+    .tool p { margin-top: 6px; font-size: 15px; color: var(--muted); line-height: 1.5; }
 
-    /* Skills */
-    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
-    .skill { padding: 18px 0; border-top: 1px solid var(--rule); }
-    .skill h3 { font-size: 16px; font-weight: 700; }
-    .skill p { color: var(--muted); font-size: 15px; margin-top: 4px; }
-
-    /* Recognition + education */
-    .awards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .award {
-      padding: 24px; border-radius: var(--radius-lg); background: var(--surface);
-      border: 1px solid var(--rule);
-    }
-    .award h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
-    .award .yr { color: var(--signal); font-weight: 600; font-size: 14px; }
-    .award p { color: var(--muted); font-size: 15px; margin-top: 8px; }
-    .edu { margin-top: 20px; font-size: 16px; }
-    .edu span { color: var(--muted); }
+    /* Recognition */
+    .honours { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 20px; }
+    .honour { border-radius: 20px; padding: 30px 28px; border: 1px solid var(--rule); background: var(--surface); }
+    .honour.top { background: var(--night); color: var(--on-night); border-color: var(--night-line); }
+    .honour .tag { font-size: 14px; font-weight: 600; color: var(--amber-ink); }
+    .honour.top .tag { color: var(--amber); }
+    .honour h3 { margin-top: 10px; font-size: 23px; letter-spacing: -0.02em; line-height: 1.2; }
+    .honour p { margin-top: 10px; font-family: var(--serif); font-size: 16px; line-height: 1.55; color: var(--muted); }
+    .honour.top p { color: var(--on-night-muted); }
 
     /* Contact */
     .contact {
-      margin: 120px 0 0; padding: 64px 0 56px; background: var(--ink); color: var(--paper);
+      margin-top: 140px; background:
+        radial-gradient(circle at 1px 1px, rgba(156,176,198,.12) 1px, transparent 0) 0 0 / 28px 28px,
+        var(--night);
+      color: var(--on-night); padding: 112px 0 40px;
     }
-    .contact .wrap { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; }
-    .contact h2 { font-size: clamp(32px, 4.4vw, 52px); letter-spacing: -0.04em; line-height: 1.02; max-width: 14em; }
-    .contact p { margin-top: 14px; opacity: .75; max-width: 34em; }
-    .contact .btn.primary { background: var(--signal); color: #fff; }
-    @media (prefers-color-scheme: dark) {
-      .contact { background: var(--surface); color: var(--ink); border-top: 1px solid var(--rule); }
-      .contact .btn.primary { color: #0E1828; }
+    .contact h2 { font-size: clamp(44px, 6.4vw, 88px); line-height: .95; letter-spacing: -0.045em; max-width: 12em; }
+    .contact p { margin-top: 24px; font-family: var(--serif); font-size: 21px; color: var(--on-night-muted); max-width: 30em; line-height: 1.5; }
+    .contact .actions { margin-top: 40px; }
+    .foot {
+      margin-top: 100px; padding-top: 24px; border-top: 1px solid var(--night-line);
+      display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 14px; color: var(--on-night-muted);
     }
-    footer { padding: 26px 0 40px; font-size: 14px; color: var(--muted); }
+
+    /* Load reveal (single moment, hero only) */
+    @media (prefers-reduced-motion: no-preference) {
+      .rise { opacity: 0; transform: translateY(14px); animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+      .rise.d1 { animation-delay: .08s; } .rise.d2 { animation-delay: .16s; } .rise.d3 { animation-delay: .24s; } .rise.d4 { animation-delay: .32s; }
+      @keyframes rise { to { opacity: 1; transform: none; } }
+    }
 
     /* ---------- Responsive ---------- */
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; gap: 40px; padding: 36px 0 64px; }
-      .sec-head { grid-template-columns: 1fr; gap: 24px; }
-      .impact { grid-template-columns: repeat(2, 1fr); }
-      .impact div:nth-child(3) { padding-left: 0; border-left: 0; }
-      .impact div:nth-child(n+3) { border-top: 1px solid var(--rule); }
-      section { padding-top: 72px; }
+    @media (max-width: 1000px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+      .head { grid-template-columns: 1fr; gap: 18px; }
+      .case { grid-template-columns: 1fr; gap: 18px; }
+      .case ul { flex-direction: row; flex-wrap: wrap; gap: 8px 22px; }
+      .career { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+      .career::before { display: none; }
+      .lead, .tools { grid-template-columns: 1fr 1fr; }
+      .honours { grid-template-columns: 1fr; }
+      .proof { grid-template-columns: 1fr 1fr; }
+      .proof div:nth-child(3) { padding-left: 0; border-left: 0; }
+      .proof div:nth-child(n+3) { border-top: 1px solid var(--night-line); }
     }
-    @media (max-width: 620px) {
+    @media (max-width: 640px) {
       .wrap { padding: 0 16px; }
-      .bar nav { display: none; }
-      .skills, .awards { grid-template-columns: 1fr; }
-      .impact strong { font-size: 30px; }
-      .impact div { padding: 22px 12px 22px 0; }
-      .impact div + div { padding-left: 12px; }
-      .impact div:nth-child(3) { padding-left: 0; }
-      summary { grid-template-columns: 1fr; padding: 18px; }
-      .role-body { padding: 0 18px 20px; }
-      .role-item { padding-left: 30px; }
-      .contact .wrap { grid-template-columns: 1fr; }
+      .nav nav a:not(.talk) { display: none; }
+      .hero { padding-top: 112px; }
+      .arch { padding: 16px 14px 14px; border-radius: 18px; }
+      .arch-top { flex-direction: column; align-items: flex-start; }
+      .l-node .b, .data .b { display: none; }
+      .l-node .a { font-size: 18px; transform: translateY(8px); }
+      .pod text, .gw text, .data .a { font-size: 16px; }
+      .data .a { transform: translateY(8px); }
+      .warn, .cluster-label { font-size: 15px; }
+      .proof { margin-top: 64px; }
+      .proof div { padding: 22px 12px 26px 0; }
+      .proof div + div { padding-left: 12px; }
+      .proof div:nth-child(3) { padding-left: 0; }
+      section.block { padding-top: 96px; }
+      .career, .lead, .tools { grid-template-columns: 1fr; }
+      .contact { margin-top: 110px; padding-top: 88px; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="bar">
-      <a class="mark" href="#top" aria-label="Pradeep Palaniappan, back to top">Pradeep<span>.</span></a>
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a class="brand" href="#top"><i aria-hidden="true"></i>Pradeep Palaniappan</a>
       <nav aria-label="Sections">
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#recognition">Recognition</a>
-        <a href="#contact">Contact</a>
+        <a href="#work">Work</a>
+        <a href="#career">Career</a>
+        <a href="#toolkit">Toolkit</a>
+        <a class="talk" href="#contact">Let's talk</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main id="top">
-      <div class="hero">
-        <div>
-          <h1>Pradeep Palaniappan</h1>
-          <p class="role">Technology Lead, enterprise modernization &amp; cloud transformation</p>
-          <p class="lede">I take mission-critical telecom platforms off aging stacks and rebuild them as Spring Boot microservices on Kubernetes and Azure, with zero downtime for the 30,000+ people who rely on them every day.</p>
-          <div class="where">
-            <span class="chip live">Open to new opportunities</span>
-            <span class="chip">Calgary, Canada</span>
-            <span class="chip">10+ years</span>
-          </div>
-          <div class="cta-row">
-            <a class="btn primary" href="#contact">Get in touch</a>
-            <a class="btn ghost" href="#experience">See experience</a>
-          </div>
-        </div>
-
-        <figure class="diagram">
-          <svg viewBox="0 0 520 330" role="img" aria-labelledby="dgTitle">
-            <title id="dgTitle">Three legacy systems — WebLogic apps, a PowerBuilder desktop app and three separate databases — consolidated into one cloud platform of Spring Boot microservices on Kubernetes and Azure.</title>
-            <text class="side" x="0" y="12">Before</text>
-            <text class="side" x="300" y="12">After</text>
-
-            <g class="node-legacy">
-              <rect x="0" y="30" width="200" height="62" rx="8" />
-              <text x="16" y="56">Oracle WebLogic</text>
-              <text x="16" y="76" style="font-size:13.5px">licensed app servers</text>
-
-              <rect x="0" y="130" width="200" height="62" rx="8" />
-              <text x="16" y="156">PowerBuilder desktop</text>
-              <text x="16" y="176" style="font-size:13.5px">single-machine installs</text>
-
-              <rect x="0" y="230" width="200" height="62" rx="8" />
-              <text x="16" y="256">3 separate systems</text>
-              <text x="16" y="276" style="font-size:13.5px">~300 overlapping tables</text>
-            </g>
-
-            <path class="flow" d="M200 61 C 255 61, 250 150, 300 150" />
-            <path class="flow" d="M200 161 C 240 161, 260 161, 300 161" />
-            <path class="flow" d="M200 261 C 255 261, 250 172, 300 172" />
-
-            <g class="node-modern">
-              <rect x="300" y="90" width="220" height="142" rx="10" />
-              <text class="t1" x="316" y="124">One modern platform</text>
-              <text class="t2" x="316" y="152">Spring Boot microservices</text>
-              <text class="t2" x="316" y="174">Kubernetes on Azure</text>
-              <text class="t2" x="316" y="196">Unified data model</text>
-              <text class="t2" x="316" y="218">React &amp; Angular front ends</text>
-            </g>
-            <circle class="pulse" cx="300" cy="161" r="5" />
-          </svg>
-          <figcaption>The pattern behind most of my work: consolidate, migrate, retire. No licence bills for the old stack and less to secure.</figcaption>
-        </figure>
-      </div>
-
-      <div class="impact" aria-label="Results at a glance">
-        <div><strong>30,000+</strong><span>users on the platform I lead</span></div>
-        <div><strong>14</strong><span>engineers across onshore and offshore teams</span></div>
-        <div><strong>25–30%</strong><span>smaller production database footprint</span></div>
-        <div><strong>30–40%</strong><span>fewer reported security findings</span></div>
-      </div>
-
-      <section class="about" aria-labelledby="aboutTitle">
-        <div class="sec-head">
-          <div><h2 id="aboutTitle">About</h2></div>
+  <main id="top">
+    <section class="hero" aria-labelledby="name">
+      <div class="wrap">
+        <div class="hero-grid">
           <div>
-            <p>I've spent more than ten years inside large telecom engineering platforms, the kind that plan networks, track materials, schedule field crews and move money. I lead the architecture, delivery and production support of one of those platforms today.</p>
-            <p>I'm most useful where a business needs to modernize without pausing. I break monoliths into services, consolidate data, move workloads to the cloud and set the engineering standards that keep a global team shipping on time and within SLA.</p>
+            <p class="status rise"><b aria-hidden="true"></b>Open to Technology Lead roles in Canada</p>
+            <h1 id="name" class="rise d1">Pradeep<br />Palaniappan</h1>
+            <p class="pitch rise d2">I modernize the systems telecom networks are planned and built on, without taking them offline.</p>
+            <div class="facts rise d3">
+              <span><strong>Technology Lead</strong> at Infosys</span>
+              <span><strong>10+ years</strong> in telecom</span>
+              <span><strong>Calgary</strong>, Canada</span>
+            </div>
+            <div class="actions rise d4">
+              <a class="btn amber" href="#work">See selected work</a>
+              <a class="btn line" href="https://www.linkedin.com/in/pradeep-palaniappan-32434293/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <section id="experience" aria-labelledby="expTitle">
-        <div class="sec-head">
-          <div>
-            <h2 id="expTitle">Experience</h2>
-            <p class="sec-note">Infosys Limited, delivering for AT&amp;T in telecommunications. Calgary, Canada.</p>
-          </div>
-
-          <ol class="timeline">
-            <li class="role-item current">
-              <details open>
-                <summary>
-                  <h3>Technology Lead</h3>
-                  <span class="when">Jul 2022 – Present</span>
-                  <span class="focus">Planning &amp; engineering platform for network planning, construction and field operations</span>
-                  <span class="toggle" aria-hidden="true"></span>
-                </summary>
-                <div class="role-body">
-                  <ul>
-                    <li>Lead architecture, development, production support and modernization for a platform serving 30,000+ users, managing a 14-member global engineering team.</li>
-                    <li>Directed the consolidation of three enterprise systems (about 300 database tables) into a single data model, simplifying maintenance and cutting cross-application issues.</li>
-                    <li>Led a zero-downtime migration of critical applications from Oracle WebLogic to WildFly as part of an Azure cloud transformation, eliminating recurring licence costs.</li>
-                    <li>Retired three legacy applications by re-engineering their capabilities as Spring Boot microservices on Kubernetes, reducing infrastructure and technical debt.</li>
-                    <li>Designed a Parquet-based archival and data-retention framework across 450+ tables, shrinking the database footprint by 25–30%.</li>
-                    <li>Worked with security teams to decommission obsolete platforms and remediate vulnerabilities, contributing to a 30–40% drop in reported findings.</li>
-                    <li>Set technical standards, design governance, code review and release management practices while meeting SLAs for business-critical applications.</li>
-                  </ul>
-                  <div class="stack" aria-label="Technologies">
-                    <span>Java</span><span>Spring Boot</span><span>Microservices</span><span>Oracle</span><span>SQL</span><span>Azure</span><span>Kubernetes</span><span>Docker</span><span>REST APIs</span><span>Jenkins</span><span>Agile Scrum</span>
-                  </div>
-                </div>
-              </details>
-            </li>
-
-            <li class="role-item">
-              <details>
-                <summary>
-                  <h3>Technology Analyst</h3>
-                  <span class="when">May 2019 – Jun 2022</span>
-                  <span class="focus">Material management, time reporting and order administration modernization</span>
-                  <span class="toggle" aria-hidden="true"></span>
-                </summary>
-                <div class="role-body">
-                  <h4>Material management &amp; time reporting</h4>
-                  <ul>
-                    <li>Re-architected a legacy material management module into an independent Spring Boot microservice.</li>
-                    <li>Decoupled tightly bound components behind APIs, reducing dependencies and preparing for cloud adoption.</li>
-                  </ul>
-                  <h4>Desktop-to-web migration</h4>
-                  <ul>
-                    <li>Led the migration of a PowerBuilder desktop application to a web platform built on Spring Boot and React.</li>
-                    <li>Defined the migration strategy, redesigned workflows and removed legacy licensing costs and security risk.</li>
-                  </ul>
-                  <h4>Order administration</h4>
-                  <ul>
-                    <li>Designed and delivered a nationwide inventory and cable-reel tracking solution for large-scale network deployment programs.</li>
-                    <li>Built microservices with Java, Spring Boot, Angular and Oracle, and defined reusable API and integration standards.</li>
-                  </ul>
-                  <h4>Across all three</h4>
-                  <ul>
-                    <li>Mentored developers, ran code reviews and shaped architecture decisions and modernization roadmaps.</li>
-                  </ul>
-                  <div class="stack" aria-label="Technologies">
-                    <span>Java</span><span>Spring Boot</span><span>React</span><span>Angular</span><span>Oracle</span><span>REST APIs</span><span>Microservices</span>
-                  </div>
-                </div>
-              </details>
-            </li>
-
-            <li class="role-item">
-              <details>
-                <summary>
-                  <h3>Senior Systems Engineer</h3>
-                  <span class="when">Nov 2017 – Apr 2019</span>
-                  <span class="focus">Order and ticket management for field engineers, contractors and dealers</span>
-                  <span class="toggle" aria-hidden="true"></span>
-                </summary>
-                <div class="role-body">
-                  <ul>
-                    <li>Built backend services and workflows with Java, Spring, Oracle and AngularJS for mission-critical field operations.</li>
-                    <li>Developed SOAP integrations with enterprise systems and automated work-order processes to raise field productivity.</li>
-                    <li>Delivered enhancements that reduced manual intervention in ticket processing.</li>
-                    <li>Provided Level 3 support, defect resolution and deployment coordination in production.</li>
-                  </ul>
-                  <div class="stack" aria-label="Technologies">
-                    <span>Core Java</span><span>Spring</span><span>AngularJS</span><span>SOAP</span><span>Oracle</span><span>JBoss</span><span>WebLogic</span>
-                  </div>
-                </div>
-              </details>
-            </li>
-
-            <li class="role-item">
-              <details>
-                <summary>
-                  <h3>Systems Engineer</h3>
-                  <span class="when">Oct 2015 – Nov 2017</span>
-                  <span class="focus">Order management for broadband and wireless service provisioning</span>
-                  <span class="toggle" aria-hidden="true"></span>
-                </summary>
-                <div class="role-body">
-                  <ul>
-                    <li>Developed applications for end-to-end order fulfilment, activation and provisioning.</li>
-                    <li>Automated order orchestration workflows, reducing manual effort.</li>
-                    <li>Supported production through issue analysis, root-cause investigation and enhancements.</li>
-                  </ul>
-                  <div class="stack" aria-label="Technologies">
-                    <span>Java</span><span>Spring</span><span>Oracle</span><span>SQL</span><span>Web Services</span>
-                  </div>
-                </div>
-              </details>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section id="skills" aria-labelledby="skillsTitle">
-        <div class="sec-head">
-          <div>
-            <h2 id="skillsTitle">Skills</h2>
-            <p class="sec-note">What I use day to day, and what I'm accountable for.</p>
-          </div>
-          <div class="skills">
-            <div class="skill"><h3>Languages &amp; frameworks</h3><p>Java 8–21, Spring Boot, Spring, Hibernate/JPA, REST, microservices</p></div>
-            <div class="skill"><h3>Data</h3><p>Oracle, SQL, PL/SQL, query tuning, data migration and consolidation</p></div>
-            <div class="skill"><h3>Cloud &amp; containers</h3><p>Microsoft Azure, Kubernetes, Docker, cloud-native design</p></div>
-            <div class="skill"><h3>DevOps</h3><p>Azure DevOps, Jenkins, Maven, Git, CI/CD, release management</p></div>
-            <div class="skill"><h3>Architecture</h3><p>Solution and system design, design patterns, legacy modernization</p></div>
-            <div class="skill"><h3>Production operations</h3><p>SLA and incident management, root-cause analysis, L2/L3 support</p></div>
-            <div class="skill"><h3>Security &amp; quality</h3><p>SonarQube, secure coding, vulnerability remediation, code review</p></div>
-            <div class="skill"><h3>Leadership</h3><p>Team leadership, Agile delivery, stakeholder management, mentoring</p></div>
-            <div class="skill"><h3>AI-assisted development</h3><p>GitHub Copilot, ChatGPT, developer productivity</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="recognition" aria-labelledby="recTitle">
-        <div class="sec-head">
-          <div><h2 id="recTitle">Recognition &amp; education</h2></div>
-          <div>
-            <div class="awards">
-              <div class="award">
-                <span class="yr">2019</span>
-                <h3>Most Valuable Player, Awards of Excellence</h3>
-                <p>For technical leadership, delivery, platform modernization and cost optimization.</p>
-              </div>
-              <div class="award">
-                <span class="yr">Infosys</span>
-                <h3>INSTA Award</h3>
-                <p>For ownership, customer focus and high-impact project contributions.</p>
+          <figure class="arch rise d2" id="arch" data-state="legacy">
+            <div class="arch-top">
+              <p id="archLabel">What modernization looks like on a real platform</p>
+              <div class="switch" role="group" aria-labelledby="archLabel">
+                <button type="button" data-set="legacy" aria-pressed="true">Before</button>
+                <button type="button" data-set="modern" aria-pressed="false">After</button>
               </div>
             </div>
-            <p class="edu"><strong>Bachelor of Engineering, Production Engineering</strong> <span>— Velammal, Anna University, India</span></p>
+
+            <svg viewBox="0 0 560 370" role="img" aria-labelledby="archDesc">
+              <desc id="archDesc">Before: Oracle WebLogic servers, a PowerBuilder desktop app, three separate systems and point-to-point integrations tangled together. After: an API gateway routing to Planning, Materials, Workforce, Orders and Finance services on Kubernetes in Azure, over one unified data model.</desc>
+
+              <g class="g-legacy">
+                <path class="tangle" d="M190 70 C 260 40, 300 120, 360 100" />
+                <path class="tangle" d="M110 98 C 80 160, 160 200, 140 262" />
+                <path class="tangle" d="M440 126 C 470 190, 400 220, 430 272" />
+                <path class="tangle" d="M230 290 C 280 250, 300 320, 340 296" />
+                <path class="tangle" d="M170 90 C 260 150, 330 180, 380 270" />
+                <path class="tangle" d="M380 120 C 300 170, 250 200, 200 262" />
+                <g class="l-node">
+                  <rect x="20" y="42" width="180" height="58" rx="10" />
+                  <text class="a" x="36" y="67">Oracle WebLogic</text>
+                  <text class="b" x="36" y="87">licensed app servers</text>
+                </g>
+                <g class="l-node">
+                  <rect x="350" y="70" width="190" height="58" rx="10" />
+                  <text class="a" x="366" y="95">PowerBuilder app</text>
+                  <text class="b" x="366" y="115">single-machine installs</text>
+                </g>
+                <g class="l-node">
+                  <rect x="40" y="262" width="200" height="58" rx="10" />
+                  <text class="a" x="56" y="287">3 separate systems</text>
+                  <text class="b" x="56" y="307">~300 overlapping tables</text>
+                </g>
+                <g class="l-node">
+                  <rect x="330" y="270" width="210" height="58" rx="10" />
+                  <text class="a" x="346" y="295">Point-to-point SOAP</text>
+                  <text class="b" x="346" y="315">brittle integrations</text>
+                </g>
+                <text class="warn" x="226" y="196">licence cost</text>
+                <text class="warn" x="226" y="214">security findings</text>
+              </g>
+
+              <g class="g-modern">
+                <path class="wire" d="M280 60 L 280 80 M 280 80 L 84 80 L 84 140 M 182 80 L 182 140 M 280 80 L 280 140 M 378 80 L 378 140 M 476 80 L 476 140" />
+                <path class="wire" d="M84 210 L 84 236 L 476 236 L 476 210 M 182 210 L 182 236 M 280 210 L 280 236 M 378 210 L 378 236 M 280 236 L 280 290" />
+                <g class="gw">
+                  <rect x="200" y="18" width="160" height="42" rx="21" />
+                  <text x="280" y="44" text-anchor="middle">API gateway</text>
+                </g>
+                <rect class="cluster" x="20" y="104" width="520" height="150" rx="16" />
+                <text class="cluster-label" x="526" y="248" text-anchor="end">Kubernetes on Azure</text>
+                <g class="pod"><rect x="40" y="140" width="88" height="70" rx="10" /><text x="84" y="180" text-anchor="middle">Planning</text></g>
+                <g class="pod"><rect x="138" y="140" width="88" height="70" rx="10" /><text x="182" y="180" text-anchor="middle">Materials</text></g>
+                <g class="pod"><rect x="236" y="140" width="88" height="70" rx="10" /><text x="280" y="180" text-anchor="middle">Workforce</text></g>
+                <g class="pod"><rect x="334" y="140" width="88" height="70" rx="10" /><text x="378" y="180" text-anchor="middle">Orders</text></g>
+                <g class="pod"><rect x="432" y="140" width="88" height="70" rx="10" /><text x="476" y="180" text-anchor="middle">Finance</text></g>
+                <g class="data">
+                  <rect x="140" y="290" width="280" height="62" rx="12" />
+                  <text class="a" x="280" y="317" text-anchor="middle">One unified data model</text>
+                  <text class="b" x="280" y="337" text-anchor="middle">history archived to Parquet</text>
+                </g>
+              </g>
+            </svg>
+            <figcaption class="cap" id="archCap" aria-live="polite">Four stacks that grew up separately: licensed servers, desktop installs and duplicated data held together by point-to-point calls.</figcaption>
+          </figure>
+        </div>
+
+        <div class="proof" aria-label="Results at a glance">
+          <div><strong>30,000<em>+</em></strong><span>people use the platform I lead every day</span></div>
+          <div><strong>14</strong><span>engineers across onshore and offshore teams</span></div>
+          <div><strong>25–30<em>%</em></strong><span>smaller production database footprint</span></div>
+          <div><strong>30–40<em>%</em></strong><span>fewer reported security findings</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="work" aria-labelledby="workTitle">
+      <div class="wrap">
+        <div class="head">
+          <h2 id="workTitle">Selected work</h2>
+          <p>Four modernization programs from the AT&amp;T planning and engineering platform: a large system for network planning, construction, materials, workforce and financial processing.</p>
+        </div>
+
+        <article class="case">
+          <div class="metric">Zero downtime<small>for 30,000+ users during cut-over</small></div>
+          <div>
+            <h3>Moving critical applications off Oracle WebLogic</h3>
+            <p class="story">The platform ran on licensed WebLogic servers that cost money every year and slowed the move to the cloud. I led the migration to <strong>WildFly as part of the Azure transformation</strong>, planned so the business never noticed the switch. The recurring licence cost is gone.</p>
+          </div>
+          <ul aria-label="Technologies"><li>WildFly</li><li>Microsoft Azure</li><li>Java</li><li>Release planning</li></ul>
+        </article>
+
+        <article class="case">
+          <div class="metric">3 → 1<small>systems, about 300 tables</small></div>
+          <div>
+            <h3>Consolidating three enterprise systems into one data model</h3>
+            <p class="story">Three systems held overlapping versions of the same data, so every fix had to be made three times. I directed their consolidation into <strong>a single unified data model</strong>, which made the data consistent, simplified maintenance and removed a whole class of cross-application issues.</p>
+          </div>
+          <ul aria-label="Technologies"><li>Oracle</li><li>Data modelling</li><li>Data migration</li><li>PL/SQL</li></ul>
+        </article>
+
+        <article class="case">
+          <div class="metric">−25–30%<small>production database footprint</small></div>
+          <div>
+            <h3>Archiving 450+ tables without losing history</h3>
+            <p class="story">A high-volume production database kept growing with data people rarely touched. I designed a <strong>Parquet-based archival and retention framework</strong> across more than 450 tables. History stays available, and the live database is leaner, faster to manage and cheaper to run.</p>
+          </div>
+          <ul aria-label="Technologies"><li>Parquet</li><li>Oracle</li><li>Retention policy</li><li>Spring Boot</li></ul>
+        </article>
+
+        <article class="case">
+          <div class="metric">Desktop → web<small>legacy client retired</small></div>
+          <div>
+            <h3>Retiring a PowerBuilder desktop application</h3>
+            <p class="story">A business-critical tool still lived on individual desktops. I defined the migration strategy, redesigned the workflows and rebuilt it as <strong>Spring Boot services with a React front end</strong>. That removed legacy licensing, unsupported components and their security risk.</p>
+          </div>
+          <ul aria-label="Technologies"><li>Spring Boot</li><li>React</li><li>REST APIs</li><li>Workflow redesign</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="career" aria-labelledby="careerTitle">
+      <div class="wrap">
+        <div class="head">
+          <h2 id="careerTitle">Career</h2>
+          <p>Ten years on the same domain, from building order systems to leading the platform. Each role widened what I'm accountable for.</p>
+        </div>
+        <ol class="career">
+          <li class="step">
+            <span class="yrs">2015 – 2017</span>
+            <h3>Systems Engineer</h3>
+            <p>Order management for broadband and wireless provisioning. Automated order orchestration workflows.</p>
+          </li>
+          <li class="step">
+            <span class="yrs">2017 – 2019</span>
+            <h3>Senior Systems Engineer</h3>
+            <p>Order and ticket systems for field engineers, contractors and dealers. Level 3 production support.</p>
+          </li>
+          <li class="step">
+            <span class="yrs">2019 – 2022</span>
+            <h3>Technology Analyst</h3>
+            <p>Broke legacy modules into Spring Boot microservices and built a nationwide cable-reel tracking solution.</p>
+          </li>
+          <li class="step now">
+            <span class="yrs">2022 – now</span>
+            <h3>Technology Lead</h3>
+            <p>Architecture, delivery and production support for a 30,000-user platform and a 14-person global team.</p>
+          </li>
+        </ol>
+        <p class="employer">All roles at <strong>Infosys Limited</strong>, delivering for <strong>AT&amp;T</strong>.</p>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="leadTitle">
+      <div class="wrap">
+        <div class="head">
+          <h2 id="leadTitle">How I lead</h2>
+          <p>Modernizing a live platform is mostly about discipline. These are the habits I bring to every team.</p>
+        </div>
+        <div class="lead">
+          <article>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7" /><path d="M16 16l2 2 4-4" /></svg>
+            <h3>Standards before speed</h3>
+            <p>Clear technical standards, design governance and real code reviews, so a distributed team ships consistently.</p>
+          </article>
+          <article>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V7z" /><path d="M9 12l2 2 4-4" /></svg>
+            <h3>Own production</h3>
+            <p>SLA commitments, incident response and root-cause analysis are part of the job, not someone else's queue.</p>
+          </article>
+          <article>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3" /><circle cx="17" cy="10" r="2.5" /><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" /><path d="M15 15.5c2.8 0 5 1.9 5 4.5" /></svg>
+            <h3>Grow the people</h3>
+            <p>Mentoring engineers, sharing context with stakeholders and planning sprints the team can actually deliver.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="toolkit" aria-labelledby="toolTitle">
+      <div class="wrap">
+        <div class="head">
+          <h2 id="toolTitle">Toolkit</h2>
+          <p>The stack I work in every day, from the code up to the cluster.</p>
+        </div>
+        <div class="tools">
+          <div class="tool"><h3>Languages &amp; frameworks</h3><p>Java 8–21, Spring Boot, Spring, Hibernate/JPA, REST, microservices</p></div>
+          <div class="tool"><h3>Data</h3><p>Oracle, SQL, PL/SQL, query tuning, migration and consolidation</p></div>
+          <div class="tool"><h3>Cloud &amp; containers</h3><p>Microsoft Azure, Kubernetes, Docker, cloud-native design</p></div>
+          <div class="tool"><h3>Delivery</h3><p>Azure DevOps, Jenkins, Maven, Git, CI/CD, release management</p></div>
+          <div class="tool"><h3>Quality &amp; security</h3><p>SonarQube, secure coding, vulnerability remediation, code review</p></div>
+          <div class="tool"><h3>AI-assisted development</h3><p>GitHub Copilot, ChatGPT, developer productivity</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="honTitle">
+      <div class="wrap">
+        <div class="head">
+          <h2 id="honTitle">Recognition</h2>
+          <p>Awards and education.</p>
+        </div>
+        <div class="honours">
+          <div class="honour top">
+            <span class="tag">2019, Awards of Excellence</span>
+            <h3>Most Valuable Player</h3>
+            <p>For technical leadership, delivery, platform modernization and cost optimization.</p>
+          </div>
+          <div class="honour">
+            <span class="tag">Infosys</span>
+            <h3>INSTA Award</h3>
+            <p>For ownership, customer focus and high-impact project contributions.</p>
+          </div>
+          <div class="honour">
+            <span class="tag">Education</span>
+            <h3>Bachelor of Engineering</h3>
+            <p>Production Engineering, Velammal, Anna University, India.</p>
           </div>
         </div>
-      </section>
-    </main>
-  </div>
-
-  <section class="contact" id="contact" aria-labelledby="contactTitle">
-    <div class="wrap">
-      <div>
-        <h2 id="contactTitle">Have a platform that needs to modernize?</h2>
-        <p>I'm open to Technology Lead and engineering leadership roles in Calgary or remote across Canada. The best way to reach me is LinkedIn.</p>
       </div>
-      <a class="btn primary" href="https://www.linkedin.com/in/pradeep-palaniappan-32434293/" target="_blank" rel="noopener">Message me on LinkedIn</a>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer class="wrap">© 2026 Pradeep Palaniappan · Updated November 2026</footer>
+  <footer class="contact" id="contact" aria-labelledby="contactTitle">
+    <div class="wrap">
+      <h2 id="contactTitle">Have a platform that needs to move forward?</h2>
+      <p>I'm looking for Technology Lead and engineering leadership roles in Calgary or remote across Canada. LinkedIn is the fastest way to reach me.</p>
+      <div class="actions">
+        <a class="btn amber" href="https://www.linkedin.com/in/pradeep-palaniappan-32434293/" target="_blank" rel="noopener">Message me on LinkedIn</a>
+      </div>
+      <div class="foot">
+        <span>© 2026 Pradeep Palaniappan</span>
+        <span>Updated November 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('nav');
+      function onScroll() { nav.classList.toggle('solid', window.scrollY > 12); }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      var arch = document.getElementById('arch');
+      var cap = document.getElementById('archCap');
+      var buttons = arch.querySelectorAll('.switch button');
+      var captions = {
+        legacy: 'Four stacks that grew up separately: licensed servers, desktop installs and duplicated data held together by point-to-point calls.',
+        modern: 'One gateway, independent Spring Boot services on Kubernetes in Azure, and a single data model with history archived to Parquet.'
+      };
+      var touched = false;
+      function setState(s) {
+        arch.setAttribute('data-state', s);
+        cap.textContent = captions[s];
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].setAttribute('aria-pressed', buttons[i].getAttribute('data-set') === s ? 'true' : 'false');
+        }
+      }
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function () { touched = true; setState(this.getAttribute('data-set')); });
+      }
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) { setState('modern'); }
+      else { setTimeout(function () { if (!touched) setState('modern'); }, 2200); }
+    })();
+  </script>
 </body>
 </html>
