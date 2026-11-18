@@ -3,253 +3,509 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ====== EDIT: page title + preview text (shows in Google & LinkedIn link previews) ====== -->
-  <title>Your Name — Your Role</title>
-  <meta name="description" content="Your Name — Senior X with N years of experience in A, B and C. Based in City, Canada." />
-  <meta property="og:title" content="Your Name — Your Role" />
-  <meta property="og:description" content="N years of experience in A, B and C. Open to new opportunities." />
+  <title>Pradeep Palaniappan — Technology Lead</title>
+  <meta name="description" content="Technology Lead with 10+ years modernizing enterprise telecom platforms: Java, Spring Boot, microservices, Oracle, Azure and Kubernetes. Based in Calgary, Canada." />
+  <meta property="og:title" content="Pradeep Palaniappan — Technology Lead" />
+  <meta property="og:description" content="10+ years moving mission-critical telecom systems off legacy stacks onto Spring Boot, Kubernetes and Azure — without stopping the business." />
   <meta property="og:type" content="profile" />
-  <!-- Optional: put a photo named photo.jpg in the repo and uncomment the next line -->
-  <!-- <meta property="og:image" content="https://YOUR-GITHUB-USERNAME.github.io/photo.jpg" /> -->
+  <meta property="og:url" content="https://pradeepsandbox.github.io/" />
+  <meta name="theme-color" content="#14213D" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314213D'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' fill='%233CC4B4' text-anchor='middle'%3EPP%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
   <style>
+    /* ---------- Tokens ---------- */
     :root {
-      --bg: #f6f7f9;
-      --card: #ffffff;
-      --text: #1d2330;
-      --muted: #5f6b7a;
-      --accent: #2456d8;      /* EDIT: change to your favourite colour */
-      --line: #e3e7ee;
+      --paper: #F1F4F7;
+      --surface: #FFFFFF;
+      --ink: #14213D;
+      --muted: #55657A;
+      --rule: #D5DCE4;
+      --legacy: #8A97A8;
+      --signal: #0B8577;
+      --signal-soft: #DDF1EE;
+      --radius-sm: 6px;
+      --radius-lg: 14px;
+      --max: 1120px;
     }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #0E1828;
+        --surface: #15223A;
+        --ink: #E7ECF3;
+        --muted: #9AA9BC;
+        --rule: #26364F;
+        --legacy: #5F6F86;
+        --signal: #3CC4B4;
+        --signal-soft: #143A40;
+      }
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "Inter", system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: "Schibsted Grotesk", system-ui, -apple-system, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 17px;
       line-height: 1.6;
-      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 3px; }
 
-    .page { max-width: 880px; margin: 40px auto; padding: 0 20px; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 40px 44px;
-    }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 
-    /* ---------- Header ---------- */
-    header { display: flex; gap: 28px; align-items: center; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
-    .avatar {
-      width: 112px; height: 112px; border-radius: 50%; flex-shrink: 0;
-      background: var(--accent); color: #fff; font-size: 40px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    /* ---------- Top bar ---------- */
+    .bar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 0;
     }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; }
-    h1 { font-size: 32px; line-height: 1.2; letter-spacing: -0.02em; }
-    .headline { font-size: 18px; color: var(--muted); margin-top: 4px; }
-    .contact { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 12px; font-size: 14.5px; }
-    .contact span { color: var(--muted); }
-    .actions { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .mark { font-weight: 800; letter-spacing: -0.02em; text-decoration: none; font-size: 18px; }
+    .mark span { color: var(--signal); }
+    .bar nav { display: flex; gap: 26px; }
+    .bar nav a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; }
+    .bar nav a:hover { color: var(--ink); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center;
+      padding: 64px 0 88px;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 7.4vw, 92px);
+      line-height: 0.95; letter-spacing: -0.045em; font-weight: 800;
+    }
+    .role {
+      margin-top: 22px; font-size: clamp(19px, 2vw, 23px); font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .lede { margin-top: 18px; color: var(--muted); max-width: 33em; font-size: 18px; }
+    .where { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: 999px;
+      border: 1px solid var(--rule); background: var(--surface);
+    }
+    .chip.live { border-color: var(--signal); color: var(--signal); }
+    .chip.live::before {
+      content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--signal); margin-right: 8px; vertical-align: 1px;
+    }
+    .cta-row { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; }
     .btn {
-      display: inline-block; padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 600;
-      border: 1px solid var(--accent);
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 13px 22px; border-radius: var(--radius-sm);
+      font-weight: 600; font-size: 16px; text-decoration: none;
+      transition: transform .15s ease, background .15s ease;
     }
-    .btn.primary { background: var(--accent); color: #fff; }
-    .btn:hover { text-decoration: none; opacity: .9; }
+    .btn.primary { background: var(--ink); color: var(--paper); }
+    .btn.primary:hover { transform: translateY(-1px); }
+    .btn.ghost { border: 1px solid var(--rule); }
+    .btn.ghost:hover { background: var(--surface); }
+
+    /* ---------- Migration diagram (the signature moment) ---------- */
+    .diagram {
+      background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius-lg);
+      padding: 26px 24px 18px;
+    }
+    .diagram svg { width: 100%; height: auto; display: block; overflow: visible; }
+    .diagram figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); }
+    .node-legacy rect { fill: var(--paper); stroke: var(--legacy); stroke-dasharray: 4 4; }
+    .node-legacy text { fill: var(--muted); font-size: 15px; }
+    .node-modern rect { fill: var(--signal-soft); stroke: var(--signal); stroke-width: 1.5; }
+    .node-modern .t1 { fill: var(--ink); font-weight: 700; }
+    .node-modern .t2 { fill: var(--muted); font-size: 15px; }
+    .diagram text { font-family: inherit; font-size: 16.5px; }
+    .diagram .side { fill: var(--muted); font-size: 14px; font-weight: 600; }
+    .flow { fill: none; stroke: var(--signal); stroke-width: 2; }
+    .pulse { fill: var(--signal); }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .flow { stroke-dasharray: 260; stroke-dashoffset: 260; animation: draw 1.1s cubic-bezier(.6,0,.2,1) forwards; }
+      .flow:nth-of-type(2) { animation-delay: .15s; }
+      .flow:nth-of-type(3) { animation-delay: .3s; }
+      .node-modern { opacity: 0; transform: translateX(10px); animation: arrive .6s ease-out 1.15s forwards; }
+      .pulse { opacity: 0; animation: arrive .4s ease-out 1.5s forwards; }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
+      @keyframes arrive { to { opacity: 1; transform: none; } }
+    }
+
+    /* ---------- Impact strip ---------- */
+    .impact {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    }
+    .impact div { padding: 30px 22px 30px 0; }
+    .impact div + div { padding-left: 22px; border-left: 1px solid var(--rule); }
+    .impact strong { display: block; font-size: 38px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; }
+    .impact span { display: block; margin-top: 6px; color: var(--muted); font-size: 15px; line-height: 1.45; }
 
     /* ---------- Sections ---------- */
-    section { padding-top: 28px; }
-    h2 {
-      font-size: 13px; text-transform: uppercase; letter-spacing: .12em;
-      color: var(--accent); margin-bottom: 14px; font-weight: 700;
+    section { padding: 96px 0 0; }
+    .sec-head { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
+    h2 { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; }
+    .sec-note { color: var(--muted); margin-top: 10px; font-size: 15px; max-width: 18em; }
+
+    /* About */
+    .about p { font-size: 21px; line-height: 1.55; max-width: 36em; letter-spacing: -0.005em; }
+    .about p + p { margin-top: 18px; font-size: 18px; color: var(--muted); }
+
+    /* Timeline */
+    .timeline { list-style: none; position: relative; }
+    .timeline::before {
+      content: ""; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 2px; background: var(--rule);
     }
-    p { color: var(--text); }
+    .role-item { position: relative; padding-left: 40px; }
+    .role-item + .role-item { margin-top: 18px; }
+    .role-item::before {
+      content: ""; position: absolute; left: 0; top: 24px; width: 16px; height: 16px; border-radius: 50%;
+      background: var(--paper); border: 2px solid var(--legacy);
+    }
+    .role-item.current::before { border-color: var(--signal); background: var(--signal); box-shadow: 0 0 0 5px var(--signal-soft); }
 
-    .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
-    .stat { background: var(--bg); border-radius: 10px; padding: 14px 16px; }
-    .stat b { display: block; font-size: 24px; color: var(--accent); }
-    .stat span { font-size: 13.5px; color: var(--muted); }
+    details {
+      background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius-lg);
+    }
+    summary {
+      list-style: none; cursor: pointer; padding: 20px 24px;
+      display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; align-items: baseline;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
+    summary .when { color: var(--muted); font-size: 15px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    summary .focus { grid-column: 1 / -1; color: var(--muted); font-size: 15px; }
+    summary .toggle {
+      grid-column: 1 / -1; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--signal);
+    }
+    summary .toggle::after { content: "Show details"; }
+    details[open] summary .toggle::after { content: "Hide details"; }
 
-    .job { margin-bottom: 22px; }
-    .job:last-child { margin-bottom: 0; }
-    .job-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    .job h3 { font-size: 17px; }
-    .job .org { color: var(--muted); font-weight: 500; }
-    .job .when { color: var(--muted); font-size: 14px; white-space: nowrap; }
-    .job ul { margin: 8px 0 0 20px; }
-    .job li { margin-bottom: 4px; }
-
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag { background: #eef2fd; color: var(--accent); padding: 5px 12px; border-radius: 999px; font-size: 13.5px; font-weight: 500; }
-
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
-    .item { margin-bottom: 10px; }
-    .item b { display: block; }
-    .item span { color: var(--muted); font-size: 14.5px; }
-
-    footer { text-align: center; color: var(--muted); font-size: 13px; margin: 24px 0 40px; }
-
-    /* ---------- Mobile ---------- */
-    @media (max-width: 640px) {
-      .card { padding: 28px 22px; }
-      header { flex-direction: column; text-align: center; }
-      .contact, .actions { justify-content: center; }
-      .two-col { grid-template-columns: 1fr; }
-      h1 { font-size: 27px; }
+    .role-body { padding: 0 24px 24px; border-top: 1px solid var(--rule); }
+    .role-body h4 { font-size: 15px; font-weight: 700; margin-top: 20px; }
+    .role-body ul { margin-top: 8px; padding-left: 18px; }
+    .role-body li { margin-top: 6px; max-width: 46em; }
+    .role-body li::marker { color: var(--signal); }
+    .stack { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .stack span {
+      font-size: 13px; font-weight: 500; padding: 3px 10px; border-radius: var(--radius-sm);
+      background: var(--paper); border: 1px solid var(--rule);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      details[open] .role-body { animation: open .25s ease-out; }
+      @keyframes open { from { opacity: 0; transform: translateY(-4px); } }
     }
 
-    /* ---------- Print / Save as PDF (Ctrl+P) gives you a clean one-pager ---------- */
-    @media print {
-      body { background: #fff; font-size: 12.5px; }
-      .page { margin: 0; max-width: none; padding: 0; }
-      .card { border: none; padding: 0; }
-      .actions, footer { display: none; }
-      section { padding-top: 14px; break-inside: avoid; }
-      header { padding-bottom: 14px; }
-      .avatar { width: 80px; height: 80px; font-size: 28px; }
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
+    .skill { padding: 18px 0; border-top: 1px solid var(--rule); }
+    .skill h3 { font-size: 16px; font-weight: 700; }
+    .skill p { color: var(--muted); font-size: 15px; margin-top: 4px; }
+
+    /* Recognition + education */
+    .awards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .award {
+      padding: 24px; border-radius: var(--radius-lg); background: var(--surface);
+      border: 1px solid var(--rule);
+    }
+    .award h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+    .award .yr { color: var(--signal); font-weight: 600; font-size: 14px; }
+    .award p { color: var(--muted); font-size: 15px; margin-top: 8px; }
+    .edu { margin-top: 20px; font-size: 16px; }
+    .edu span { color: var(--muted); }
+
+    /* Contact */
+    .contact {
+      margin: 120px 0 0; padding: 64px 0 56px; background: var(--ink); color: var(--paper);
+    }
+    .contact .wrap { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; }
+    .contact h2 { font-size: clamp(32px, 4.4vw, 52px); letter-spacing: -0.04em; line-height: 1.02; max-width: 14em; }
+    .contact p { margin-top: 14px; opacity: .75; max-width: 34em; }
+    .contact .btn.primary { background: var(--signal); color: #fff; }
+    @media (prefers-color-scheme: dark) {
+      .contact { background: var(--surface); color: var(--ink); border-top: 1px solid var(--rule); }
+      .contact .btn.primary { color: #0E1828; }
+    }
+    footer { padding: 26px 0 40px; font-size: 14px; color: var(--muted); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; padding: 36px 0 64px; }
+      .sec-head { grid-template-columns: 1fr; gap: 24px; }
+      .impact { grid-template-columns: repeat(2, 1fr); }
+      .impact div:nth-child(3) { padding-left: 0; border-left: 0; }
+      .impact div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+      section { padding-top: 72px; }
+    }
+    @media (max-width: 620px) {
+      .wrap { padding: 0 16px; }
+      .bar nav { display: none; }
+      .skills, .awards { grid-template-columns: 1fr; }
+      .impact strong { font-size: 30px; }
+      .impact div { padding: 22px 12px 22px 0; }
+      .impact div + div { padding-left: 12px; }
+      .impact div:nth-child(3) { padding-left: 0; }
+      summary { grid-template-columns: 1fr; padding: 18px; }
+      .role-body { padding: 0 18px 20px; }
+      .role-item { padding-left: 30px; }
+      .contact .wrap { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <main class="card">
+  <div class="wrap">
+    <header class="bar">
+      <a class="mark" href="#top" aria-label="Pradeep Palaniappan, back to top">Pradeep<span>.</span></a>
+      <nav aria-label="Sections">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#recognition">Recognition</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-      <!-- ================= HEADER ================= -->
-      <header>
-        <!-- EDIT: replace "YN" with your initials, OR add photo.jpg to the repo and use:
-             <div class="avatar"><img src="photo.jpg" alt="Your Name"></div> -->
-        <div class="avatar">YN</div>
+    <main id="top">
+      <div class="hero">
         <div>
-          <h1>Your Name</h1>
-          <div class="headline">Your Title · Your Specialty</div>
-          <div class="contact">
-            <span>📍 City, Province, Canada</span>
-            <a href="mailto:you@example.com">✉️ you@example.com</a>
-            <a href="https://www.linkedin.com/in/your-profile" target="_blank">🔗 LinkedIn</a>
-            <a href="https://github.com/your-username" target="_blank">💻 GitHub</a>
+          <h1>Pradeep Palaniappan</h1>
+          <p class="role">Technology Lead, enterprise modernization &amp; cloud transformation</p>
+          <p class="lede">I take mission-critical telecom platforms off aging stacks and rebuild them as Spring Boot microservices on Kubernetes and Azure, with zero downtime for the 30,000+ people who rely on them every day.</p>
+          <div class="where">
+            <span class="chip live">Open to new opportunities</span>
+            <span class="chip">Calgary, Canada</span>
+            <span class="chip">10+ years</span>
           </div>
-          <div class="actions">
-            <a class="btn primary" href="mailto:you@example.com">Get in touch</a>
-            <!-- Optional: upload resume.pdf to the repo and this button will download it -->
-            <a class="btn" href="resume.pdf" target="_blank">Download résumé (PDF)</a>
+          <div class="cta-row">
+            <a class="btn primary" href="#contact">Get in touch</a>
+            <a class="btn ghost" href="#experience">See experience</a>
           </div>
         </div>
-      </header>
 
-      <!-- ================= ABOUT ================= -->
-      <section>
-        <h2>About</h2>
-        <p>
-          Two to four sentences about who you are professionally. Example: I'm a [role] with [N] years of
-          experience in [industry/domain]. I specialise in [key strengths], and I've delivered [type of results]
-          for [type of companies/clients]. Currently open to [roles / opportunities].
-        </p>
-      </section>
+        <figure class="diagram">
+          <svg viewBox="0 0 520 330" role="img" aria-labelledby="dgTitle">
+            <title id="dgTitle">Three legacy systems — WebLogic apps, a PowerBuilder desktop app and three separate databases — consolidated into one cloud platform of Spring Boot microservices on Kubernetes and Azure.</title>
+            <text class="side" x="0" y="12">Before</text>
+            <text class="side" x="300" y="12">After</text>
 
-      <!-- ================= HIGHLIGHTS (numbers grab attention) ================= -->
-      <section>
-        <h2>Highlights</h2>
-        <div class="highlights">
-          <div class="stat"><b>10+</b><span>Years of experience</span></div>
-          <div class="stat"><b>25+</b><span>Projects delivered</span></div>
-          <div class="stat"><b>$2M</b><span>Cost savings driven</span></div>
-          <div class="stat"><b>3</b><span>Countries worked in</span></div>
-        </div>
-      </section>
+            <g class="node-legacy">
+              <rect x="0" y="30" width="200" height="62" rx="8" />
+              <text x="16" y="56">Oracle WebLogic</text>
+              <text x="16" y="76" style="font-size:13.5px">licensed app servers</text>
 
-      <!-- ================= EXPERIENCE (copy a .job block to add more) ================= -->
-      <section>
-        <h2>Experience</h2>
+              <rect x="0" y="130" width="200" height="62" rx="8" />
+              <text x="16" y="156">PowerBuilder desktop</text>
+              <text x="16" y="176" style="font-size:13.5px">single-machine installs</text>
 
-        <div class="job">
-          <div class="job-top">
-            <h3>Job Title <span class="org">· Company Name</span></h3>
-            <span class="when">2022 – Present</span>
+              <rect x="0" y="230" width="200" height="62" rx="8" />
+              <text x="16" y="256">3 separate systems</text>
+              <text x="16" y="276" style="font-size:13.5px">~300 overlapping tables</text>
+            </g>
+
+            <path class="flow" d="M200 61 C 255 61, 250 150, 300 150" />
+            <path class="flow" d="M200 161 C 240 161, 260 161, 300 161" />
+            <path class="flow" d="M200 261 C 255 261, 250 172, 300 172" />
+
+            <g class="node-modern">
+              <rect x="300" y="90" width="220" height="142" rx="10" />
+              <text class="t1" x="316" y="124">One modern platform</text>
+              <text class="t2" x="316" y="152">Spring Boot microservices</text>
+              <text class="t2" x="316" y="174">Kubernetes on Azure</text>
+              <text class="t2" x="316" y="196">Unified data model</text>
+              <text class="t2" x="316" y="218">React &amp; Angular front ends</text>
+            </g>
+            <circle class="pulse" cx="300" cy="161" r="5" />
+          </svg>
+          <figcaption>The pattern behind most of my work: consolidate, migrate, retire. No licence bills for the old stack and less to secure.</figcaption>
+        </figure>
+      </div>
+
+      <div class="impact" aria-label="Results at a glance">
+        <div><strong>30,000+</strong><span>users on the platform I lead</span></div>
+        <div><strong>14</strong><span>engineers across onshore and offshore teams</span></div>
+        <div><strong>25–30%</strong><span>smaller production database footprint</span></div>
+        <div><strong>30–40%</strong><span>fewer reported security findings</span></div>
+      </div>
+
+      <section class="about" aria-labelledby="aboutTitle">
+        <div class="sec-head">
+          <div><h2 id="aboutTitle">About</h2></div>
+          <div>
+            <p>I've spent more than ten years inside large telecom engineering platforms, the kind that plan networks, track materials, schedule field crews and move money. I lead the architecture, delivery and production support of one of those platforms today.</p>
+            <p>I'm most useful where a business needs to modernize without pausing. I break monoliths into services, consolidate data, move workloads to the cloud and set the engineering standards that keep a global team shipping on time and within SLA.</p>
           </div>
-          <ul>
-            <li>Achievement with a result — e.g. "Led migration to X, cutting processing time by 40%".</li>
-            <li>Another achievement with a number or outcome.</li>
-            <li>Scope: team size, budget, clients or tools you owned.</li>
-          </ul>
         </div>
+      </section>
 
-        <div class="job">
-          <div class="job-top">
-            <h3>Job Title <span class="org">· Company Name</span></h3>
-            <span class="when">2018 – 2022</span>
+      <section id="experience" aria-labelledby="expTitle">
+        <div class="sec-head">
+          <div>
+            <h2 id="expTitle">Experience</h2>
+            <p class="sec-note">Infosys Limited, delivering for AT&amp;T in telecommunications. Calgary, Canada.</p>
           </div>
-          <ul>
-            <li>Achievement with a measurable result.</li>
-            <li>Another achievement.</li>
-          </ul>
-        </div>
 
-        <div class="job">
-          <div class="job-top">
-            <h3>Job Title <span class="org">· Company Name, India</span></h3>
-            <span class="when">2015 – 2018</span>
+          <ol class="timeline">
+            <li class="role-item current">
+              <details open>
+                <summary>
+                  <h3>Technology Lead</h3>
+                  <span class="when">Jul 2022 – Present</span>
+                  <span class="focus">Planning &amp; engineering platform for network planning, construction and field operations</span>
+                  <span class="toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="role-body">
+                  <ul>
+                    <li>Lead architecture, development, production support and modernization for a platform serving 30,000+ users, managing a 14-member global engineering team.</li>
+                    <li>Directed the consolidation of three enterprise systems (about 300 database tables) into a single data model, simplifying maintenance and cutting cross-application issues.</li>
+                    <li>Led a zero-downtime migration of critical applications from Oracle WebLogic to WildFly as part of an Azure cloud transformation, eliminating recurring licence costs.</li>
+                    <li>Retired three legacy applications by re-engineering their capabilities as Spring Boot microservices on Kubernetes, reducing infrastructure and technical debt.</li>
+                    <li>Designed a Parquet-based archival and data-retention framework across 450+ tables, shrinking the database footprint by 25–30%.</li>
+                    <li>Worked with security teams to decommission obsolete platforms and remediate vulnerabilities, contributing to a 30–40% drop in reported findings.</li>
+                    <li>Set technical standards, design governance, code review and release management practices while meeting SLAs for business-critical applications.</li>
+                  </ul>
+                  <div class="stack" aria-label="Technologies">
+                    <span>Java</span><span>Spring Boot</span><span>Microservices</span><span>Oracle</span><span>SQL</span><span>Azure</span><span>Kubernetes</span><span>Docker</span><span>REST APIs</span><span>Jenkins</span><span>Agile Scrum</span>
+                  </div>
+                </div>
+              </details>
+            </li>
+
+            <li class="role-item">
+              <details>
+                <summary>
+                  <h3>Technology Analyst</h3>
+                  <span class="when">May 2019 – Jun 2022</span>
+                  <span class="focus">Material management, time reporting and order administration modernization</span>
+                  <span class="toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="role-body">
+                  <h4>Material management &amp; time reporting</h4>
+                  <ul>
+                    <li>Re-architected a legacy material management module into an independent Spring Boot microservice.</li>
+                    <li>Decoupled tightly bound components behind APIs, reducing dependencies and preparing for cloud adoption.</li>
+                  </ul>
+                  <h4>Desktop-to-web migration</h4>
+                  <ul>
+                    <li>Led the migration of a PowerBuilder desktop application to a web platform built on Spring Boot and React.</li>
+                    <li>Defined the migration strategy, redesigned workflows and removed legacy licensing costs and security risk.</li>
+                  </ul>
+                  <h4>Order administration</h4>
+                  <ul>
+                    <li>Designed and delivered a nationwide inventory and cable-reel tracking solution for large-scale network deployment programs.</li>
+                    <li>Built microservices with Java, Spring Boot, Angular and Oracle, and defined reusable API and integration standards.</li>
+                  </ul>
+                  <h4>Across all three</h4>
+                  <ul>
+                    <li>Mentored developers, ran code reviews and shaped architecture decisions and modernization roadmaps.</li>
+                  </ul>
+                  <div class="stack" aria-label="Technologies">
+                    <span>Java</span><span>Spring Boot</span><span>React</span><span>Angular</span><span>Oracle</span><span>REST APIs</span><span>Microservices</span>
+                  </div>
+                </div>
+              </details>
+            </li>
+
+            <li class="role-item">
+              <details>
+                <summary>
+                  <h3>Senior Systems Engineer</h3>
+                  <span class="when">Nov 2017 – Apr 2019</span>
+                  <span class="focus">Order and ticket management for field engineers, contractors and dealers</span>
+                  <span class="toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="role-body">
+                  <ul>
+                    <li>Built backend services and workflows with Java, Spring, Oracle and AngularJS for mission-critical field operations.</li>
+                    <li>Developed SOAP integrations with enterprise systems and automated work-order processes to raise field productivity.</li>
+                    <li>Delivered enhancements that reduced manual intervention in ticket processing.</li>
+                    <li>Provided Level 3 support, defect resolution and deployment coordination in production.</li>
+                  </ul>
+                  <div class="stack" aria-label="Technologies">
+                    <span>Core Java</span><span>Spring</span><span>AngularJS</span><span>SOAP</span><span>Oracle</span><span>JBoss</span><span>WebLogic</span>
+                  </div>
+                </div>
+              </details>
+            </li>
+
+            <li class="role-item">
+              <details>
+                <summary>
+                  <h3>Systems Engineer</h3>
+                  <span class="when">Oct 2015 – Nov 2017</span>
+                  <span class="focus">Order management for broadband and wireless service provisioning</span>
+                  <span class="toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="role-body">
+                  <ul>
+                    <li>Developed applications for end-to-end order fulfilment, activation and provisioning.</li>
+                    <li>Automated order orchestration workflows, reducing manual effort.</li>
+                    <li>Supported production through issue analysis, root-cause investigation and enhancements.</li>
+                  </ul>
+                  <div class="stack" aria-label="Technologies">
+                    <span>Java</span><span>Spring</span><span>Oracle</span><span>SQL</span><span>Web Services</span>
+                  </div>
+                </div>
+              </details>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="skills" aria-labelledby="skillsTitle">
+        <div class="sec-head">
+          <div>
+            <h2 id="skillsTitle">Skills</h2>
+            <p class="sec-note">What I use day to day, and what I'm accountable for.</p>
           </div>
-          <ul>
-            <li>Achievement with a measurable result.</li>
-          </ul>
+          <div class="skills">
+            <div class="skill"><h3>Languages &amp; frameworks</h3><p>Java 8–21, Spring Boot, Spring, Hibernate/JPA, REST, microservices</p></div>
+            <div class="skill"><h3>Data</h3><p>Oracle, SQL, PL/SQL, query tuning, data migration and consolidation</p></div>
+            <div class="skill"><h3>Cloud &amp; containers</h3><p>Microsoft Azure, Kubernetes, Docker, cloud-native design</p></div>
+            <div class="skill"><h3>DevOps</h3><p>Azure DevOps, Jenkins, Maven, Git, CI/CD, release management</p></div>
+            <div class="skill"><h3>Architecture</h3><p>Solution and system design, design patterns, legacy modernization</p></div>
+            <div class="skill"><h3>Production operations</h3><p>SLA and incident management, root-cause analysis, L2/L3 support</p></div>
+            <div class="skill"><h3>Security &amp; quality</h3><p>SonarQube, secure coding, vulnerability remediation, code review</p></div>
+            <div class="skill"><h3>Leadership</h3><p>Team leadership, Agile delivery, stakeholder management, mentoring</p></div>
+            <div class="skill"><h3>AI-assisted development</h3><p>GitHub Copilot, ChatGPT, developer productivity</p></div>
+          </div>
         </div>
       </section>
 
-      <!-- ================= SKILLS ================= -->
-      <section>
-        <h2>Skills</h2>
-        <div class="tags">
-          <span class="tag">Skill one</span>
-          <span class="tag">Skill two</span>
-          <span class="tag">Skill three</span>
-          <span class="tag">Tool / Software</span>
-          <span class="tag">Tool / Software</span>
-          <span class="tag">Leadership</span>
-          <span class="tag">Stakeholder management</span>
+      <section id="recognition" aria-labelledby="recTitle">
+        <div class="sec-head">
+          <div><h2 id="recTitle">Recognition &amp; education</h2></div>
+          <div>
+            <div class="awards">
+              <div class="award">
+                <span class="yr">2019</span>
+                <h3>Most Valuable Player, Awards of Excellence</h3>
+                <p>For technical leadership, delivery, platform modernization and cost optimization.</p>
+              </div>
+              <div class="award">
+                <span class="yr">Infosys</span>
+                <h3>INSTA Award</h3>
+                <p>For ownership, customer focus and high-impact project contributions.</p>
+              </div>
+            </div>
+            <p class="edu"><strong>Bachelor of Engineering, Production Engineering</strong> <span>— Velammal, Anna University, India</span></p>
+          </div>
         </div>
       </section>
-
-      <!-- ================= EDUCATION + CERTIFICATIONS ================= -->
-      <section class="two-col">
-        <div>
-          <h2>Education</h2>
-          <div class="item"><b>Degree, Major</b><span>University Name · Year</span></div>
-          <div class="item"><b>Degree, Major</b><span>University Name · Year</span></div>
-        </div>
-        <div>
-          <h2>Certifications</h2>
-          <div class="item"><b>Certification Name</b><span>Issuer · Year</span></div>
-          <div class="item"><b>Certification Name</b><span>Issuer · Year</span></div>
-        </div>
-      </section>
-
-      <!-- ================= OPTIONAL: PROJECTS (delete this section if not needed) ================= -->
-      <section>
-        <h2>Selected Projects</h2>
-        <div class="item"><b>Project name</b><span>One line on what it was and the outcome. <a href="#">Link →</a></span></div>
-        <div class="item"><b>Project name</b><span>One line on what it was and the outcome.</span></div>
-      </section>
-
-      <!-- ================= LANGUAGES ================= -->
-      <section>
-        <h2>Languages</h2>
-        <div class="tags">
-          <span class="tag">English — Fluent</span>
-          <span class="tag">Hindi — Native</span>
-          <span class="tag">Language — Level</span>
-        </div>
-      </section>
-
     </main>
-    <!-- EDIT: update this date whenever you change the page, so viewers know it's current -->
-    <footer>Last updated: November 2026</footer>
   </div>
+
+  <section class="contact" id="contact" aria-labelledby="contactTitle">
+    <div class="wrap">
+      <div>
+        <h2 id="contactTitle">Have a platform that needs to modernize?</h2>
+        <p>I'm open to Technology Lead and engineering leadership roles in Calgary or remote across Canada. The best way to reach me is LinkedIn.</p>
+      </div>
+      <!-- EDIT: put your LinkedIn profile URL in href below -->
+      <a class="btn primary" href="https://www.linkedin.com/" target="_blank" rel="noopener">Message me on LinkedIn</a>
+    </div>
+  </section>
+
+  <footer class="wrap">© 2026 Pradeep Palaniappan · Updated November 2026</footer>
 </body>
 </html>
