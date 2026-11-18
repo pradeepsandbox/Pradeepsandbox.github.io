@@ -88,14 +88,6 @@
       overflow: hidden;
     }
     .hero-grid { display: grid; grid-template-columns: 1fr 1.08fr; gap: 64px; align-items: center; }
-    .who { display: flex; align-items: center; gap: 18px; }
-    .portrait {
-      position: relative; flex-shrink: 0; width: 96px; height: 96px; border-radius: 50%;
-      background: #1B3350 url("photo.jpg") center / cover no-repeat;
-      box-shadow: 0 0 0 3px var(--night), 0 0 0 5px var(--amber);
-      -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; pointer-events: auto;
-    }
-    .portrait::after { content: ""; position: absolute; inset: 0; border-radius: 50%; }
     .status { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--on-night-muted); }
     .status b { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; box-shadow: 0 0 0 4px rgba(74,222,128,.15); }
     .hero h1 {
@@ -272,8 +264,6 @@
       .wrap { padding: 0 16px; }
       .nav nav a:not(.talk) { display: none; }
       .hero { padding-top: 112px; }
-      .portrait { width: 76px; height: 76px; }
-      .who { gap: 14px; }
       .arch { padding: 16px 14px 14px; border-radius: 18px; }
       .arch-top { flex-direction: column; align-items: flex-start; }
       .l-node .b, .data .b { display: none; }
@@ -309,10 +299,7 @@
       <div class="wrap">
         <div class="hero-grid">
           <div>
-            <div class="who rise">
-              <div class="portrait" id="portrait" role="img" aria-label="Portrait of Pradeep Palaniappan"></div>
-              <p class="status"><b aria-hidden="true"></b>Open to Technology Lead roles in Canada</p>
-            </div>
+            <p class="status rise"><b aria-hidden="true"></b>Open to Technology Lead roles in Canada</p>
             <h1 id="name" class="rise d1">Pradeep<br />Palaniappan</h1>
             <p class="pitch rise d2">I modernize the systems telecom networks are planned and built on, without taking them offline.</p>
             <div class="facts rise d3">
@@ -570,11 +557,6 @@
       function onScroll() { nav.classList.toggle('solid', window.scrollY > 12); }
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
-
-      var portrait = document.getElementById('portrait');
-      ['contextmenu', 'dragstart'].forEach(function (ev) {
-        portrait.addEventListener(ev, function (e) { e.preventDefault(); });
-      });
 
       var arch = document.getElementById('arch');
       var cap = document.getElementById('archCap');
