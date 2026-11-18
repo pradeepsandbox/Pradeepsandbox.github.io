@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ====== EDIT: page title + preview text (shows in Google & LinkedIn link previews) ====== -->
+  <title>Your Name — Your Role</title>
+  <meta name="description" content="Your Name — Senior X with N years of experience in A, B and C. Based in City, Canada." />
+  <meta property="og:title" content="Your Name — Your Role" />
+  <meta property="og:description" content="N years of experience in A, B and C. Open to new opportunities." />
+  <meta property="og:type" content="profile" />
+  <!-- Optional: put a photo named photo.jpg in the repo and uncomment the next line -->
+  <!-- <meta property="og:image" content="https://YOUR-GITHUB-USERNAME.github.io/photo.jpg" /> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --card: #ffffff;
+      --text: #1d2330;
+      --muted: #5f6b7a;
+      --accent: #2456d8;      /* EDIT: change to your favourite colour */
+      --line: #e3e7ee;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page { max-width: 880px; margin: 40px auto; padding: 0 20px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 40px 44px;
+    }
+
+    /* ---------- Header ---------- */
+    header { display: flex; gap: 28px; align-items: center; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+    .avatar {
+      width: 112px; height: 112px; border-radius: 50%; flex-shrink: 0;
+      background: var(--accent); color: #fff; font-size: 40px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    h1 { font-size: 32px; line-height: 1.2; letter-spacing: -0.02em; }
+    .headline { font-size: 18px; color: var(--muted); margin-top: 4px; }
+    .contact { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 12px; font-size: 14.5px; }
+    .contact span { color: var(--muted); }
+    .actions { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      border: 1px solid var(--accent);
+    }
+    .btn.primary { background: var(--accent); color: #fff; }
+    .btn:hover { text-decoration: none; opacity: .9; }
+
+    /* ---------- Sections ---------- */
+    section { padding-top: 28px; }
+    h2 {
+      font-size: 13px; text-transform: uppercase; letter-spacing: .12em;
+      color: var(--accent); margin-bottom: 14px; font-weight: 700;
+    }
+    p { color: var(--text); }
+
+    .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+    .stat { background: var(--bg); border-radius: 10px; padding: 14px 16px; }
+    .stat b { display: block; font-size: 24px; color: var(--accent); }
+    .stat span { font-size: 13.5px; color: var(--muted); }
+
+    .job { margin-bottom: 22px; }
+    .job:last-child { margin-bottom: 0; }
+    .job-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .job h3 { font-size: 17px; }
+    .job .org { color: var(--muted); font-weight: 500; }
+    .job .when { color: var(--muted); font-size: 14px; white-space: nowrap; }
+    .job ul { margin: 8px 0 0 20px; }
+    .job li { margin-bottom: 4px; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { background: #eef2fd; color: var(--accent); padding: 5px 12px; border-radius: 999px; font-size: 13.5px; font-weight: 500; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+    .item { margin-bottom: 10px; }
+    .item b { display: block; }
+    .item span { color: var(--muted); font-size: 14.5px; }
+
+    footer { text-align: center; color: var(--muted); font-size: 13px; margin: 24px 0 40px; }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 640px) {
+      .card { padding: 28px 22px; }
+      header { flex-direction: column; text-align: center; }
+      .contact, .actions { justify-content: center; }
+      .two-col { grid-template-columns: 1fr; }
+      h1 { font-size: 27px; }
+    }
+
+    /* ---------- Print / Save as PDF (Ctrl+P) gives you a clean one-pager ---------- */
+    @media print {
+      body { background: #fff; font-size: 12.5px; }
+      .page { margin: 0; max-width: none; padding: 0; }
+      .card { border: none; padding: 0; }
+      .actions, footer { display: none; }
+      section { padding-top: 14px; break-inside: avoid; }
+      header { padding-bottom: 14px; }
+      .avatar { width: 80px; height: 80px; font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="card">
+
+      <!-- ================= HEADER ================= -->
+      <header>
+        <!-- EDIT: replace "YN" with your initials, OR add photo.jpg to the repo and use:
+             <div class="avatar"><img src="photo.jpg" alt="Your Name"></div> -->
+        <div class="avatar">YN</div>
+        <div>
+          <h1>Your Name</h1>
+          <div class="headline">Your Title · Your Specialty</div>
+          <div class="contact">
+            <span>📍 City, Province, Canada</span>
+            <a href="mailto:you@example.com">✉️ you@example.com</a>
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">🔗 LinkedIn</a>
+            <a href="https://github.com/your-username" target="_blank">💻 GitHub</a>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="mailto:you@example.com">Get in touch</a>
+            <!-- Optional: upload resume.pdf to the repo and this button will download it -->
+            <a class="btn" href="resume.pdf" target="_blank">Download résumé (PDF)</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- ================= ABOUT ================= -->
+      <section>
+        <h2>About</h2>
+        <p>
+          Two to four sentences about who you are professionally. Example: I'm a [role] with [N] years of
+          experience in [industry/domain]. I specialise in [key strengths], and I've delivered [type of results]
+          for [type of companies/clients]. Currently open to [roles / opportunities].
+        </p>
+      </section>
+
+      <!-- ================= HIGHLIGHTS (numbers grab attention) ================= -->
+      <section>
+        <h2>Highlights</h2>
+        <div class="highlights">
+          <div class="stat"><b>10+</b><span>Years of experience</span></div>
+          <div class="stat"><b>25+</b><span>Projects delivered</span></div>
+          <div class="stat"><b>$2M</b><span>Cost savings driven</span></div>
+          <div class="stat"><b>3</b><span>Countries worked in</span></div>
+        </div>
+      </section>
+
+      <!-- ================= EXPERIENCE (copy a .job block to add more) ================= -->
+      <section>
+        <h2>Experience</h2>
+
+        <div class="job">
+          <div class="job-top">
+            <h3>Job Title <span class="org">· Company Name</span></h3>
+            <span class="when">2022 – Present</span>
+          </div>
+          <ul>
+            <li>Achievement with a result — e.g. "Led migration to X, cutting processing time by 40%".</li>
+            <li>Another achievement with a number or outcome.</li>
+            <li>Scope: team size, budget, clients or tools you owned.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top">
+            <h3>Job Title <span class="org">· Company Name</span></h3>
+            <span class="when">2018 – 2022</span>
+          </div>
+          <ul>
+            <li>Achievement with a measurable result.</li>
+            <li>Another achievement.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top">
+            <h3>Job Title <span class="org">· Company Name, India</span></h3>
+            <span class="when">2015 – 2018</span>
+          </div>
+          <ul>
+            <li>Achievement with a measurable result.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= SKILLS ================= -->
+      <section>
+        <h2>Skills</h2>
+        <div class="tags">
+          <span class="tag">Skill one</span>
+          <span class="tag">Skill two</span>
+          <span class="tag">Skill three</span>
+          <span class="tag">Tool / Software</span>
+          <span class="tag">Tool / Software</span>
+          <span class="tag">Leadership</span>
+          <span class="tag">Stakeholder management</span>
+        </div>
+      </section>
+
+      <!-- ================= EDUCATION + CERTIFICATIONS ================= -->
+      <section class="two-col">
+        <div>
+          <h2>Education</h2>
+          <div class="item"><b>Degree, Major</b><span>University Name · Year</span></div>
+          <div class="item"><b>Degree, Major</b><span>University Name · Year</span></div>
+        </div>
+        <div>
+          <h2>Certifications</h2>
+          <div class="item"><b>Certification Name</b><span>Issuer · Year</span></div>
+          <div class="item"><b>Certification Name</b><span>Issuer · Year</span></div>
+        </div>
+      </section>
+
+      <!-- ================= OPTIONAL: PROJECTS (delete this section if not needed) ================= -->
+      <section>
+        <h2>Selected Projects</h2>
+        <div class="item"><b>Project name</b><span>One line on what it was and the outcome. <a href="#">Link →</a></span></div>
+        <div class="item"><b>Project name</b><span>One line on what it was and the outcome.</span></div>
+      </section>
+
+      <!-- ================= LANGUAGES ================= -->
+      <section>
+        <h2>Languages</h2>
+        <div class="tags">
+          <span class="tag">English — Fluent</span>
+          <span class="tag">Hindi — Native</span>
+          <span class="tag">Language — Level</span>
+        </div>
+      </section>
+
+    </main>
+    <!-- EDIT: update this date whenever you change the page, so viewers know it's current -->
+    <footer>Last updated: November 2026</footer>
+  </div>
+</body>
+</html>
